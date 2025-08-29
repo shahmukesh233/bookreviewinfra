@@ -1,0 +1,45 @@
+# Example terraform.tfvars file for production environment
+# Copy this file to terraform.tfvars and modify the values as needed
+# IMPORTANT: Use secure values in production!
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Resource Naming
+name_prefix = "bookreview-prod"
+
+# State Management
+state_bucket_name = "bookreview-terraform-state-prod"
+
+# Network Configuration
+availability_zone = "us-east-1a"
+
+# Backend Configuration
+backend_instance_type = "t3.medium"
+key_name = "bookreview-prod-key"
+
+# Security - CRITICAL: Restrict to specific IP ranges
+allowed_ips = [
+  # Example of restricted access - replace with your actual IP ranges:
+  "203.0.113.0/24",  # Your office IP range
+  "198.51.100.0/24", # Your home IP range
+  # "0.0.0.0/0"  # REMOVE THIS - allows access from anywhere
+]
+
+# Database Configuration
+db_name = "bookreviewdb"
+db_user = "postgres"
+db_password = "CHANGE_THIS_TO_A_STRONG_PASSWORD"  # Use a strong, unique password
+
+# Frontend Configuration
+frontend_bucket_name = "bookreview-frontend-prod"
+
+# Tags
+default_tags = {
+  Environment = "prod"
+  Owner       = "bookreview-team"
+  Project     = "bookreview"
+  CostCenter  = "engineering"
+  Criticality = "high"
+}
+

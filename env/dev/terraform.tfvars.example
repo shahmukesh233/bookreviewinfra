@@ -1,0 +1,43 @@
+# Example terraform.tfvars file for dev environment
+# Copy this file to terraform.tfvars and modify the values as needed
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Resource Naming
+name_prefix = "bookreview-dev"
+
+# State Management
+state_bucket_name = "bookreview-terraform-state-dev"
+
+# Network Configuration
+availability_zone = "us-east-1a"
+
+# Backend Configuration
+backend_instance_type = "t3.medium"
+key_name = "bookreview-dev-key"
+
+# Security - IMPORTANT: Restrict these in production
+allowed_ips = [
+  "0.0.0.0/0"  # WARNING: This allows access from anywhere
+  # Example of restricted access:
+  # "203.0.113.0/24",  # Your office IP range
+  # "198.51.100.0/24"  # Your home IP range
+]
+
+# Database Configuration
+db_name = "bookreviewdb"
+db_user = "postgres"
+db_password = "admin"  # WARNING: Use a strong password in production
+
+# Frontend Configuration
+frontend_bucket_name = "bookreview-frontend-dev"
+
+# Tags
+default_tags = {
+  Environment = "dev"
+  Owner       = "bookreview-team"
+  Project     = "bookreview"
+  CostCenter  = "engineering"
+}
+
