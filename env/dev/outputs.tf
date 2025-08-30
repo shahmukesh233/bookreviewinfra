@@ -72,3 +72,4 @@ output "state_bucket_name" {
   value       = module.shared.state_bucket_name
 }
 
+
